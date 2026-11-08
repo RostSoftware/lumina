@@ -19,10 +19,12 @@ Status legend: `[ ]` todo · `[~]` in progress · `[x]` done. Update this file i
 
 ## Phase 1 — Foundations
 
-- [ ] **Design system:** color tokens (light/dark, matching web), typography, shapes, spacing; shared components:
+- [ ] **Design system:** tokens from the root `AGENTS.md` "Shared Design System" (colors, Inter, Lucide
+      `ImageVector`s, shapes, spacing); shared components:
       `Avatar`, `PostImage` (aspect ratio from `dim`, blurhash placeholder, Blossom fallback), `Skeleton`, `EmptyState`,
       `ErrorState`, `LuminaTopBar`, `LuminaBottomBar`
-- [ ] **Navigation shell:** bottom bar (Home · Discover · Create · Notifications · Profile), nav rail on wide screens,
+- [ ] **Navigation shell:** bottom bar (Home · Discover · Create · Notifications · Profile) on all window sizes,
+      centered 470dp content column,
       type-safe routes, hidden bar on full-screen flows, edge-to-edge + predictive back
 - [ ] **Nostr core:** singleton `NostrClient`, default bootstrap relays, NIP-65 relay list loading, outbox routing,
       lifecycle-aware subscriptions, NIP-42 auth
@@ -111,7 +113,8 @@ Status legend: `[ ]` todo · `[~]` in progress · `[x]` done. Update this file i
 
 - [ ] Skeleton, empty and error states audited on every screen
 - [ ] Accessibility pass (TalkBack, content descriptions, font scaling, touch targets)
-- [ ] Adaptive layouts (tablet/foldable) verified
+- [ ] Large screens (tablet/foldable) verified: bottom bar + centered column
+- [ ] Side-by-side visual parity check against LUMINA web for every screen (light + dark)
 - [ ] Performance: baseline profile, image memory, list stability, no leaked subscriptions
 - [ ] Cross-client check: posts, comments, zaps, DMs created on Android render correctly on LUMINA web, and vice versa
 - [ ] R8/minify config, signed release build, Play Store listing assets

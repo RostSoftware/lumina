@@ -148,30 +148,89 @@ Rules:
 - Content: muted users/words, show sensitive content toggle.
 - Account: switch accounts, log out, show npub with copy + QR, signer info.
 
-## Navigation & Layout
+## Navigation & Layout (identical on web and Android)
 
-- **Bottom navigation bar** (Instagram-style), five icons, no labels:
-  **Home · Discover (search) · Create (+) · Notifications (heart) · Profile (avatar)**.
-  Active tab uses the filled icon variant. Respect system safe areas / insets.
-- Messages is reached from the paper-plane icon at the top-right of Home. Settings from the profile header.
-- Home top bar: "LUMINA" wordmark left, messages icon right.
-- Hide the bottom bar on full-screen flows (create post, chat thread, media viewer).
-- Large screens (desktop web, tablets, foldables): a centered ~470dp feed column; on very wide layouts the bottom bar
-  becomes a side navigation rail. Never stretch photos across the full width of a large screen.
-- Logged-out users can browse Discover, profiles and posts; any action that needs a signer opens the login flow.
+Web and Android must look and behave like **the same app**. A user switching between them should find every screen,
+icon, color and gesture where they expect it. Platform conventions only win where they truly have to (system back,
+share sheet, permission prompts).
 
-## Design Principles (all platforms)
+- **Bottom navigation bar on every platform and every screen size.** That includes desktop web, tablets and foldables.
+  There is no sidebar and no navigation rail.
+  - Five icons, no labels, in this order: **Home · Discover (search) · Create (+) · Notifications (heart) · Profile (avatar)**.
+  - Active tab: the same icon, filled (the profile avatar gets a 1.5px foreground ring). Inactive: outline.
+  - Height 56 plus the bottom safe-area inset. Background `surface` with a hairline `border` on top.
+  - On wide screens the bar's background spans the full width, but its icons sit inside the centered content column.
+  - Unread notifications show a small `like` red dot on the heart icon.
+- **Top bar** (56 high, `surface`, hairline bottom border):
+  - Home: "LUMINA" wordmark on the left, messages (paper-plane) icon on the right.
+  - Other screens: back arrow and title on the left, context actions on the right.
+- Messages is reached from the top bar on Home. Settings is reached from the profile header.
+- Hide the bottom bar on full-screen flows: create post, chat thread and the media viewer.
+- **One centered content column, max 470 wide**, on every screen size. Photos are never stretched beyond it. On wide
+  screens the area outside the column is plain `background`.
+- Logged-out users can browse Discover, profiles and posts. Any action that needs a signer opens the login flow.
 
-- **Clean and calm.** Photos are the hero; chrome is minimal, neutral and thin. Generous whitespace, hairline dividers,
-  no heavy shadows or gradients except on the brand mark.
-- One sans-serif type family with a clear hierarchy (≈14 body, semibold usernames).
-- Consistent outline icon set (filled variant for active/selected).
-- Full light and dark themes driven by design tokens — never hardcode colors in components. Web and Android share the
-  same palette values.
+## Shared Design System
+
+These tokens are the **single source of truth**. Web defines them as CSS variables (Tailwind theme in
+`lumina-web/src/index.css`). Android defines them in `core/designsystem` (`LuminaTheme`). Both must use exactly these
+values. If you change a token, change it here and on both platforms in the same change, or record the gap in the
+other app's plan.
+
+### Colors
+
+| Token | Light | Dark | Use |
+| --- | --- | --- | --- |
+| `background` | `#FFFFFF` | `#000000` | page background |
+| `surface` | `#FFFFFF` | `#0A0A0A` | bars, sheets, dialogs |
+| `surface-muted` | `#F5F5F5` | `#171717` | inputs, skeletons, chat bubbles (theirs) |
+| `foreground` | `#0A0A0A` | `#FAFAFA` | primary text and icons |
+| `muted-foreground` | `#737373` | `#A3A3A3` | secondary text, timestamps |
+| `border` | `#E5E5E5` | `#262626` | hairline dividers (1px web / 0.5–1dp Android) |
+| `primary` | `#0A0A0A` | `#FAFAFA` | primary buttons (Follow, Share, Publish) |
+| `on-primary` | `#FFFFFF` | `#0A0A0A` | text on primary |
+| `accent` | `#7C3AED` | `#A78BFA` | links, mentions, hashtags, own chat bubbles, focus ring |
+| `like` | `#FF3040` | `#FF3040` | filled heart, unread dot |
+| `zap` | `#F59E0B` | `#FBBF24` | zap icon and amounts |
+| `destructive` | `#DC2626` | `#F87171` | delete, errors |
+
+The brand gradient (`#F59E0B → #EC4899 → #7C3AED`, 45°) is used **only** for the LUMINA wordmark/app icon and the
+story-style avatar ring. Nowhere else.
+
+### Typography
+
+- Font: **Inter** on both platforms (web: self-hosted / Google Fonts; Android: bundled `res/font`).
+- Scale: wordmark 24/600 · title 16/600 · body 14/400 · username 14/600 · caption & meta 12/400 · count 14/600.
+- Respect user font scaling (rem on web, sp on Android).
+
+### Icons
+
+- **Lucide** on both platforms: `lucide-react` on web, and the same Lucide SVGs converted to Compose `ImageVector`s in
+  `core/designsystem` on Android. Don't use Material Icons on Android.
+- 24 in the bars and post action row, 1.75 stroke. Active/selected means the same glyph filled.
+- Mapping: Home `house` · Discover `search` · Create `square-plus` · Notifications `heart` · Messages `send` ·
+  Comment `message-circle` · Repost `repeat-2` · Zap `zap` · Bookmark `bookmark` · More `ellipsis` · Settings `settings`.
+
+### Shape, spacing, components
+
+- Spacing scale in multiples of 4. Screen gutter 16, post header padding 12.
+- Radius: feed photos 0 (edge-to-edge in the column), cards/inputs/buttons 8, sheets 16 (top corners), avatars and
+  pills fully round.
+- Avatars: 32 in the post header, 26 in the bottom bar, 86 in the profile header, 44 in lists.
+- Profile and Discover grids: 3 columns, square, 2 gap.
+- Bottom sheets (not centered dialogs) for post actions, zap amounts and share. They look and behave the same on both
+  platforms.
+- Motion: 150–250 ms ease-out. Like heart pop, double-tap heart burst, carousel snap.
+
+### Design principles
+
+- **Clean and calm.** Photos are the hero. Chrome is minimal, neutral and thin, with generous whitespace and hairline
+  dividers. No heavy shadows, and no gradients except the brand gradient above.
+- Never hardcode colors or sizes in components. Always use the tokens.
 - Every async view has a **skeleton** matching its final layout, an **empty state**, and an **error state** with retry.
-- Subtle, fast micro-interactions (< 250 ms): like-heart pop, press feedback, smooth carousel.
 - Accessibility: every image has alt text / content description (from `imeta` `alt` or a sensible fallback), visible
-  focus indicators, ≥ 44–48 px/dp touch targets, labelled icon buttons, supports system font scaling.
+  focus indicators (`accent`), touch targets of at least 44 px / 48 dp, labelled icon buttons, and support for system
+  font scaling. Text contrast meets WCAG AA in both themes.
 
 ## Security (all platforms)
 
@@ -186,5 +245,6 @@ Rules:
 2. The feature works against real relays logged in (with nsec **and** a remote signer) and degrades gracefully when
    logged out.
 3. Loading, empty and error states are implemented.
-4. It looks right on a small phone and on a large screen, in light and dark mode.
+4. It looks right on a small phone and on a large screen, in light and dark mode, and matches the other platform's
+   version of the same screen.
 5. Events it produces render correctly in the other LUMINA app(s).

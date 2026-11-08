@@ -90,7 +90,11 @@ All signing goes through Quartz's `NostrSigner` interface, so features never kno
   `nostr:` and verified App Links for `https://lumina.rocks` (host `assetlinks.json` on the web app).
 - Share sheet target: receiving images from other apps opens the Create flow.
 - System notifications for DMs, mentions, comments and zaps (POST_NOTIFICATIONS permission, per-type channels).
-- Adaptive layout: bottom bar on compact width, navigation rail on medium/expanded, feed column capped at ~470dp.
+- Layout follows the root "Navigation & Layout" section. The bottom bar is used on **all** window sizes (no navigation
+  rail), and content sits in a centered column of at most 470dp on tablets and foldables.
+- Design tokens, the Inter font and Lucide icons come from the root "Shared Design System" and live in
+  `core/designsystem`. Don't use Material Icons or Material default colors directly. Map the tokens into the M3
+  `ColorScheme` and override components where M3 defaults differ from the LUMINA look.
 - Strip EXIF/GPS on device before upload. Use the system Photo Picker and avoid broad storage permissions.
 
 ## Security
