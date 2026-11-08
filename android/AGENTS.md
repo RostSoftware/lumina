@@ -17,7 +17,9 @@ as you work.
 - **Hilt** for dependency injection.
 - **Navigation Compose** with type-safe (`@Serializable`) routes.
 - **Coil 3** for image loading, with a blurhash placeholder and Blossom fallback.
-- **Room** for the local event cache. **DataStore** for preferences.
+- **Quartz `SQLiteEventStore`** (`nip01Core/store/sqlite`) is the local event cache. Don't model Nostr events in Room.
+  **DataStore** holds preferences. Add **Room** only for app-specific, non-event data (e.g. upload drafts), and only
+  when it is actually needed.
 - **Android Keystore** encrypts secrets: nsec, bunker client keys and NWC URIs.
 - **WorkManager** for uploads/publishing that must survive process death, and for notification polling.
 - **CameraX** / Photo Picker for media capture and selection.
@@ -35,7 +37,7 @@ android/
 ├── core/
 │   ├── nostr/              ← Quartz wrapper: NostrClient singleton, relay mgmt, outbox routing, subscriptions
 │   ├── signer/             ← account + signer abstraction (internal, NIP-55 Amber, NIP-46 bunker/nostrconnect)
-│   ├── data/               ← repositories, Room cache, DataStore
+│   ├── data/               ← repositories, Quartz SQLiteEventStore, DataStore
 │   ├── media/              ← Blossom upload, EXIF stripping, blurhash, sha256
 │   ├── wallet/             ← NWC (NIP-47) + zaps (NIP-57)
 │   └── designsystem/       ← theme, color/typography tokens, shared components (Avatar, PostImage, Skeleton…)
@@ -49,14 +51,16 @@ android/
 
 ## Architecture Rules
 
-- **Unidirectional data flow:** UI → ViewModel events → repositories → Quartz/Room. UI state is an immutable data
+- **Unidirectional data flow:** UI → ViewModel events → repositories → Quartz (`NostrClient` + `SQLiteEventStore`). UI state is an immutable data
   class or sealed interface with `Loading / Content / Empty / Error`.
 - **One shared `NostrClient`** (Hilt `@Singleton`) on an app-scoped `CoroutineScope`. Subscriptions are tied to
   ViewModel/lifecycle scope and **must be closed** when the screen leaves. Leaked REQs are bugs.
 - **Outbox model:** read an author's posts from their NIP-65 write relays, and publish to the user's write relays plus
   tagged users' read relays. DMs go to kind 10050 relays.
-- **Cache first:** render from Room immediately and update from relays. Verify signatures (Quartz does this) before
+- **Cache first:** render from the Quartz event store immediately and update from relays. Verify signatures (Quartz does this) before
   inserting into the cache.
+- Wherever Quartz only provides models/builders (see "Quartz gaps" in `PLAN.md`), put the glue code in the matching
+  `core/*` module behind an interface so it can be swapped for upstream Quartz support later.
 - Use `fetchAll` / `subscribeAsFlow` for paging with `until` cursors. Combine kinds into one filter where possible
   (e.g. counts for kinds 7/16/1111/9735).
 - No work on the main thread. Use `Dispatchers.IO` for disk/network and `Dispatchers.Default` for crypto/blurhash.

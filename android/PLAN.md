@@ -12,7 +12,7 @@ Status legend: `[ ]` todo · `[~]` in progress · `[x]` done. Update this file i
 - [ ] Gradle project in `android/` (Kotlin DSL, version catalog `gradle/libs.versions.toml`, Gradle wrapper committed)
 - [ ] Modules: `app`, `core/{nostr,signer,data,media,wallet,designsystem}`, `feature/*`
 - [ ] Dependencies: Quartz (`com.vitorpamplona.quartz:quartz`, latest Maven Central release), Compose BOM, Material 3,
-      Hilt, Navigation Compose, Coil 3, Room, DataStore, WorkManager, OkHttp, kotlinx-serialization, CameraX
+      Hilt, Navigation Compose, Coil 3, DataStore, WorkManager, OkHttp, kotlinx-serialization, CameraX
 - [ ] `minSdk 26`, latest `compileSdk`/`targetSdk`, Java 17
 - [ ] CI: GitHub Actions job that runs `./gradlew lint testDebugUnitTest assembleDebug` on changes in `android/**`
 - [ ] App icon, splash screen, app name "LUMINA", application id `rocks.lumina.app`
@@ -26,7 +26,8 @@ Status legend: `[ ]` todo · `[~]` in progress · `[x]` done. Update this file i
       type-safe routes, hidden bar on full-screen flows, edge-to-edge + predictive back
 - [ ] **Nostr core:** singleton `NostrClient`, default bootstrap relays, NIP-65 relay list loading, outbox routing,
       lifecycle-aware subscriptions, NIP-42 auth
-- [ ] **Cache:** Room schema for events + profiles + relay lists; cache-first repositories
+- [ ] **Cache:** Quartz `SQLiteEventStore` (one database per account) for events, profiles and relay lists;
+      cache-first repositories
 - [ ] **Event models/validation:** kind 20 parser (`imeta`, `title`, `t`, `p`, `content-warning`), profile metadata,
       contact list, reactions, reposts, comments, zap receipts
 - [ ] **Safe content renderer:** caption/bio with links, `nostr:` mentions, hashtags, custom emoji
@@ -37,7 +38,7 @@ Status legend: `[ ]` todo · `[~]` in progress · `[x]` done. Update this file i
 - [ ] **Amber (NIP-55)** via `NostrSignerExternal`: detection, `get_public_key`, permission request, content-provider
       background signing + intent fallback
 - [ ] **NIP-46 bunker** (`bunker://` paste or QR scan) via Quartz `nip46RemoteSigner`
-- [ ] **NIP-46 nostrconnect** (`nostrconnect://` QR + "open in signer")
+- [ ] **NIP-46 nostrconnect** (`nostrconnect://` QR + "open in signer"). Needs the handshake glue (see gaps)
 - [ ] nsec import + new account creation (generate key, set name/avatar, back-up-key flow)
 - [ ] Signer state UX: pending / rejected / timeout / unreachable
 - [ ] Account switcher + logout (wipes secrets and the account's cache)
@@ -70,7 +71,7 @@ Status legend: `[ ]` todo · `[~]` in progress · `[x]` done. Update this file i
 - [ ] Photo Picker (multi-select) + CameraX capture + share-sheet intake
 - [ ] Reorder, crop/aspect ratio, per-image alt text
 - [ ] Caption, hashtags, tag people, location, content warning
-- [ ] Blossom upload (BUD-01/02 with kind 24242 auth) to the user's kind 10063 servers with default fallback;
+- [ ] Blossom upload (BUD-01/02 with kind 24242 auth). HTTP client is our own (see gaps) to the user's kind 10063 servers with default fallback;
       EXIF/GPS stripping; compute `dim`, `blurhash`, `x`, `m`; per-file progress
 - [ ] Publish kind 20 via WorkManager (survives process death, retries), outbox relays
 
@@ -120,12 +121,25 @@ Status legend: `[ ]` todo · `[~]` in progress · `[x]` done. Update this file i
 ## Open questions / decisions
 
 - Single-module vs multi-module to start: the plan assumes multi-module. Collapse into `app/` if it slows early progress.
-- Quartz NIP-46 API maturity: verify `nip46RemoteSigner` covers bunker + nostrconnect, and extend in `core/signer`
-  if not.
+- Quartz NIP-46: bunker login is covered by `NostrSignerRemote.fromBunkerUri`. The nostrconnect handshake is our own
+  code (gap #5).
 - Push notifications: periodic WorkManager polling first. Revisit later (e.g. a notification relay/server).
 
 ## Quartz gaps / local extensions
 
-_Track anything we had to add on top of Quartz here (and consider upstreaming)._
+Checked against Quartz `main` @ `24fa80d` (2026-11-07). Quartz covers every Nostr protocol piece we need: kind 20
+`PictureEvent`, NIP-22/25/18/09/56/36/51/65/50/05/42, NIP-17 + NIP-04 DMs, NIP-57 zap requests + receipt validation,
+NIP-47 request/response models, NIP-46 remote signer (bunker), NIP-55 Amber (`NostrSignerExternal`,
+`IsExternalSignerInstalled`, `ExternalSignerLogin`), and an SQLite event store. These pieces are missing and must be built
+in LUMINA. Keep each one behind an interface, and consider upstreaming it to Quartz.
 
-- (none yet)
+| # | Gap | Quartz provides | We build | Module | Effort | Status |
+| --- | --- | --- | --- | --- | --- | --- |
+| 1 | **Blossom HTTP client** | `BlossomAuthorizationEvent` (kind 24242 upload/get/list/delete auth), `BlossomServersEvent` (10063), `BlossomUploadResult` parsing, `BlossomServerUrl` | OkHttp `PUT /upload` with auth header, progress callbacks, `HEAD`/`GET` by sha256 for fallback, server-list failover, optional `PUT /mirror` | `core/media` | M | [ ] |
+| 2 | **Blurhash encode/decode** | Only `BlurhashTag` (the field) | Encoder at upload time + decoder for placeholders (small library or ~150 lines), integrated with Coil | `core/media`, `core/designsystem` | S | [ ] |
+| 3 | **LNURL-pay HTTP** | `Lud06` decode, `LnInvoiceUtil` (bolt11 parse/amount), `LnurlEndpointResolver` *interface* | OkHttp resolver: `lud16` → `.well-known/lnurlp`, call `callback` with `amount` + `nostr=` zap request, return/validate invoice amount | `core/wallet` | S | [ ] |
+| 4 | **NWC transport** | `Nip47Client` builds `NwcRequestEvent`s, decrypts responses/notifications, provides filters | Publish requests to the wallet relay via `NostrClient`, subscribe `responseFilter`, await with timeout, map errors | `core/wallet` | S | [ ] |
+| 5 | **nostrconnect handshake (client-initiated NIP-46)** | `NostrConnectURI.buildNostrConnect` / parsing, `NostrSignerRemote` (works once remote pubkey is known) | Generate ephemeral keypair + secret → build URI → subscribe kind 24133 on the URI relays → verify `connect` response secret → create `NostrSignerRemote` with the signer's pubkey → `getPublicKey()` | `core/signer` | S–M | [ ] |
+| 6 | **Metadata (EXIF/GPS) stripping** | `BuzzMediaSanitizer` strips JPEG/PNG metadata, but it is internal to another feature and its API may change | LUMINA `MediaSanitizer`: strip JPEG/PNG (adapt that approach), and re-encode HEIC/WebP and other formats through `Bitmap`; apply orientation before stripping | `core/media` | S | [ ] |
+
+Plain Android work (not Quartz's job): image dimensions (`dim`), crop/resize, CameraX, Photo Picker, system notifications.
