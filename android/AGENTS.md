@@ -43,7 +43,7 @@ android/
     ├── auth/ feed/ discover/ post/ create/ profile/ messages/ notifications/ settings/
 ```
 
-- Package root: `com.rostsoftware.lumina` (application id `com.rostsoftware.lumina`).
+- Package root: `rocks.lumina.app` (application id `rocks.lumina.app`, from the domain `lumina.rocks`).
 - Each `feature/*` module has `XxxScreen` (stateless composable), `XxxViewModel` (exposes a `StateFlow<XxxUiState>`),
   and `XxxRoute` (wires the ViewModel to the screen). Features depend on `core/*` only, never on each other.
 
@@ -83,7 +83,7 @@ All signing goes through Quartz's `NostrSigner` interface, so features never kno
 - Edge-to-edge with correct insets. Predictive back. Dynamic color is **off** (LUMINA uses its own palette, which must
   match the web tokens).
 - Deep links: `nostr:` scheme and NIP-19 strings route to the profile or post screens. Register an intent filter for
-  `nostr:` and for the web domain once it exists.
+  `nostr:` and verified App Links for `https://lumina.rocks` (host `assetlinks.json` on the web app).
 - Share sheet target: receiving images from other apps opens the Create flow.
 - System notifications for DMs, mentions, comments and zaps (POST_NOTIFICATIONS permission, per-type channels).
 - Adaptive layout: bottom bar on compact width, navigation rail on medium/expanded, feed column capped at ~470dp.

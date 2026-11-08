@@ -15,7 +15,7 @@ Status legend: `[ ]` todo · `[~]` in progress · `[x]` done. Update this file i
       Hilt, Navigation Compose, Coil 3, Room, DataStore, WorkManager, OkHttp, kotlinx-serialization, CameraX
 - [ ] `minSdk 26`, latest `compileSdk`/`targetSdk`, Java 17
 - [ ] CI: GitHub Actions job that runs `./gradlew lint testDebugUnitTest assembleDebug` on changes in `android/**`
-- [ ] App icon, splash screen, app name "LUMINA"
+- [ ] App icon, splash screen, app name "LUMINA", application id `rocks.lumina.app`
 
 ## Phase 1 — Foundations
 
@@ -119,7 +119,6 @@ Status legend: `[ ]` todo · `[~]` in progress · `[x]` done. Update this file i
 
 ## Open questions / decisions
 
-- Application id `com.rostsoftware.lumina`: confirm before the first release.
 - Single-module vs multi-module to start: the plan assumes multi-module. Collapse into `app/` if it slows early progress.
 - Quartz NIP-46 API maturity: verify `nip46RemoteSigner` covers bunker + nostrconnect, and extend in `core/signer`
   if not.
