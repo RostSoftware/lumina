@@ -26,13 +26,14 @@ const queryClient = new QueryClient({
     queries: {
       refetchOnWindowFocus: false,
       staleTime: 60000, // 1 minute
+      retry: 1,
       gcTime: Infinity,
     },
   },
 });
 
 const defaultConfig: AppConfig = {
-  theme: "light",
+  theme: "system",
   relayMetadata: APP_RELAYS,
   blossomServerMetadata: {
     servers: [
@@ -43,6 +44,7 @@ const defaultConfig: AppConfig = {
     updatedAt: 0,
   },
   useAppBlossomServers: true,
+  showSensitive: false,
 };
 
 export function App() {

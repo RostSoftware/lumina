@@ -30,6 +30,8 @@ export interface AppConfig {
    * are used.
    */
   useAppBlossomServers: boolean;
+  /** Show posts with a `content-warning` without the blur overlay. */
+  showSensitive: boolean;
 }
 
 export interface AppContextType {
