@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.Lumina" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:windowBackground">@color/lumina_background</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+    </style>
+
+    <style name="Theme.Lumina.Starting" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/lumina_background</item>
+        <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher</item>
+        <item name="postSplashScreenTheme">@style/Theme.Lumina</item>
+    </style>
+</resources>

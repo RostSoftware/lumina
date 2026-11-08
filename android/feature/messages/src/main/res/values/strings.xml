@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="messages_title">Messages</string>
+    <string name="messages_new">New message</string>
+    <string name="messages_back">Back</string>
+    <string name="messages_login_title">Your messages</string>
+    <string name="messages_login_message">Log in to send and read private, end-to-end encrypted messages.</string>
+    <string name="messages_login_action">Log in</string>
+    <string name="messages_empty_title">No messages yet</string>
+    <string name="messages_empty_message">Start a private conversation with someone you follow.</string>
+    <string name="messages_loading">Loading conversations</string>
+    <string name="messages_you_prefix">You: %1$s</string>
+    <string name="messages_open_chat_with">Open chat with %1$s</string>
+    <string name="messages_open_profile">Open %1$s\'s profile</string>
+    <string name="messages_legacy">legacy</string>
+    <string name="messages_search_hint">Search name, npub or NIP-05</string>
+    <string name="messages_search_failed">Search failed. Check your connection and try again.</string>
+    <string name="messages_search_no_results">No users found</string>
+    <string name="messages_today">Today</string>
+    <string name="messages_yesterday">Yesterday</string>
+    <string name="messages_sending">Sending…</string>
+    <string name="messages_failed">Not delivered · Tap to retry</string>
+    <string name="messages_retry">Retry sending</string>
+    <string name="messages_composer_hint">Message…</string>
+    <string name="messages_send">Send</string>
+    <string name="messages_chat_empty">Messages are end-to-end encrypted. Say hi!</string>
+</resources>

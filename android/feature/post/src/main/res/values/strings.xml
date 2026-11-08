@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="post_title">Post</string>
+    <string name="post_comments">Comments</string>
+    <string name="post_no_comments">No comments yet</string>
+    <string name="post_no_comments_message">Start the conversation.</string>
+    <string name="post_add_comment">Add a comment…</string>
+    <string name="post_reply_to">Reply to %1$s…</string>
+    <string name="post_replying_to">Replying to %1$s</string>
+    <string name="post_cancel_reply">Cancel reply</string>
+    <string name="post_send">Post comment</string>
+    <string name="post_reply">Reply</string>
+    <string name="post_not_found">Post not found</string>
+    <string name="post_not_found_message">It may have been deleted, or none of your relays have it.</string>
+    <string name="post_comment_failed">Couldn\'t load comments</string>
+    <string name="post_delete_comment">Delete comment</string>
+    <string name="post_delete_comment_confirm">Delete this comment?</string>
+    <string name="post_cancel">Cancel</string>
+    <string name="post_close">Close</string>
+    <string name="post_comment_deleted">Comment deleted</string>
+    <string name="post_log_in_to_comment">Log in to comment</string>
+    <string name="post_viewer_title">Photo viewer</string>
+</resources>

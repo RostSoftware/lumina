@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="feed_messages">Messages</string>
+    <string name="feed_empty_logged_out_title">Welcome to LUMINA</string>
+    <string name="feed_empty_logged_out_message">Log in to see photos from people you follow, or explore what\'s happening on Nostr.</string>
+    <string name="feed_empty_no_follows_title">Your feed is empty</string>
+    <string name="feed_empty_no_follows_message">Follow people to see their photos here. Discover is a good place to start.</string>
+    <string name="feed_empty_no_posts_title">No photos yet</string>
+    <string name="feed_empty_no_posts_message">The people you follow haven\'t posted pictures recently.</string>
+    <string name="feed_go_discover">Explore Discover</string>
+    <string name="feed_log_in">Log in</string>
+    <string name="feed_error">Couldn\'t load your feed</string>
+    <string name="feed_end">You\'re all caught up</string>
+</resources>
