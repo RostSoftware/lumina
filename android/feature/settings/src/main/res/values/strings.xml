@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- hub -->
+    <string name="settings_title">Settings</string>
+    <string name="settings_edit_profile">Edit profile</string>
+    <string name="settings_relays">Relays</string>
+    <string name="settings_relays_sub">Where your posts are published and read</string>
+    <string name="settings_media">Media servers</string>
+    <string name="settings_media_sub">Blossom servers for your photo uploads</string>
+    <string name="settings_wallet">Wallet</string>
+    <string name="settings_wallet_sub">Nostr Wallet Connect and zap amount</string>
+    <string name="settings_appearance">Appearance</string>
+    <string name="settings_content">Content &amp; safety</string>
+    <string name="settings_content_sub">Muted users, words and sensitive content</string>
+    <string name="settings_account">Account</string>
+    <string name="settings_account_sub">Switch accounts, keys and log out</string>
+    <string name="settings_version">LUMINA %1$s</string>
+    <string name="settings_logged_out_title">You\'re browsing as a guest</string>
+    <string name="settings_logged_out_body">Log in to post, like, follow, zap and change your relays.</string>
+    <string name="settings_log_in">Log in</string>
+    <string name="settings_section_general">General</string>
+    <string name="settings_section_network">Network</string>
+
+    <!-- shared -->
+    <string name="settings_save">Save</string>
+    <string name="settings_remove">Remove %1$s</string>
+    <string name="settings_add">Add</string>
+    <string name="settings_cancel">Cancel</string>
+    <string name="settings_saved">Saved</string>
+    <string name="settings_unsaved">You have unsaved changes</string>
+    <string name="settings_discard">Discard</string>
+    <string name="settings_copy">Copy</string>
+    <string name="settings_copied">Copied</string>
+    <string name="settings_paste">Paste</string>
+    <string name="settings_scan">Scan QR code</string>
+    <string name="settings_load_failed">Couldn\'t load your settings from relays</string>
+    <string name="settings_login_required">Log in to change this setting</string>
+    <string name="settings_move_up">Move %1$s up</string>
+    <string name="settings_move_down">Move %1$s down</string>
+
+    <!-- relays -->
+    <string name="settings_relays_nip65">Relays</string>
+    <string name="settings_relays_nip65_help">Read relays are where people find your notifications and replies. Write relays are where your posts go.</string>
+    <string name="settings_relays_defaults">You haven\'t published a relay list yet. These are the LUMINA defaults.</string>
+    <string name="settings_relay_read">Read</string>
+    <string name="settings_relay_write">Write</string>
+    <string name="settings_relay_add_label">Add relay</string>
+    <string name="settings_relay_placeholder">wss://relay.example.com</string>
+    <string name="settings_relay_invalid">Enter a valid wss:// relay address</string>
+    <string name="settings_relay_duplicate">That relay is already in the list</string>
+    <string name="settings_relays_need_write">Keep at least one write relay</string>
+    <string name="settings_relays_empty">No relays. Add one below.</string>
+    <string name="settings_dm_relays">Message inbox relays</string>
+    <string name="settings_dm_relays_help">Private messages to you are delivered here (kind 10050). If empty, your read relays are used.</string>
+    <string name="settings_dm_relays_empty">No inbox relays. Your read relays are used.</string>
+
+    <!-- media -->
+    <string name="settings_media_help">Your photos are uploaded to the first server that accepts them, in this order.</string>
+    <string name="settings_media_empty">No media servers of your own yet.</string>
+    <string name="settings_media_add_label">Add server</string>
+    <string name="settings_media_placeholder">https://blossom.example.com</string>
+    <string name="settings_media_invalid">Enter a valid https:// address</string>
+    <string name="settings_media_duplicate">That server is already in the list</string>
+    <string name="settings_media_defaults">Also use LUMINA default servers</string>
+    <string name="settings_media_defaults_sub">Used as a fallback after your own servers</string>
+    <string name="settings_media_test">Test</string>
+    <string name="settings_media_test_label">Test %1$s</string>
+    <string name="settings_media_ok">Reachable · %1$d ms</string>
+    <string name="settings_media_unreachable">Unreachable</string>
+    <string name="settings_media_testing">Testing…</string>
+    <string name="settings_media_default_list">LUMINA defaults</string>
+
+    <!-- wallet -->
+    <string name="settings_wallet_connect_title">Connect a wallet</string>
+    <string name="settings_wallet_connect_body">Paste a Nostr Wallet Connect string (nostr+walletconnect://…) from Alby Hub, Coinos, Primal, Minibits or another NWC wallet.</string>
+    <string name="settings_wallet_uri_label">Connection string</string>
+    <string name="settings_wallet_connect">Connect wallet</string>
+    <string name="settings_wallet_placeholder" translatable="false">nostr+walletconnect://…</string>
+    <string name="settings_wallet_invalid">That isn\'t a nostr+walletconnect:// string</string>
+    <string name="settings_wallet_connected">Wallet connected</string>
+    <string name="settings_wallet_relay">Relay</string>
+    <string name="settings_wallet_address">Lightning address</string>
+    <string name="settings_wallet_balance">Balance</string>
+    <string name="settings_wallet_balance_value">%1$s sats</string>
+    <string name="settings_wallet_balance_unavailable">Not shared by your wallet</string>
+    <string name="settings_wallet_disconnect">Disconnect wallet</string>
+    <string name="settings_wallet_disconnected">Wallet disconnected</string>
+    <string name="settings_wallet_secret_note">The connection string is stored encrypted on this device.</string>
+    <string name="settings_zap_default">Default zap amount</string>
+    <string name="settings_zap_custom">Custom amount (sats)</string>
+    <string name="settings_zap_sats">%1$s sats</string>
+    <string name="settings_zap_set">Set</string>
+    <string name="settings_zap_invalid">Enter a number of sats between 1 and 10,000,000</string>
+    <string name="settings_show_secret">Show connection string</string>
+    <string name="settings_hide_secret">Hide connection string</string>
+
+    <!-- appearance -->
+    <string name="settings_theme">Theme</string>
+    <string name="settings_theme_system">System</string>
+    <string name="settings_theme_system_sub">Follow your device setting</string>
+    <string name="settings_theme_light">Light</string>
+    <string name="settings_theme_dark">Dark</string>
+
+    <!-- content -->
+    <string name="settings_sensitive">Show sensitive content</string>
+    <string name="settings_sensitive_sub">Show photos with a content warning without blurring them</string>
+    <string name="settings_notifications">System notifications</string>
+    <string name="settings_notifications_sub">Messages, mentions, comments and zaps</string>
+    <string name="settings_muted_users">Muted users</string>
+    <string name="settings_muted_users_empty">You haven\'t muted anyone.</string>
+    <string name="settings_unmute">Unmute</string>
+    <string name="settings_muted_words">Muted words</string>
+    <string name="settings_muted_words_empty">No muted words.</string>
+    <string name="settings_mute_word_label">Add word or phrase</string>
+    <string name="settings_muted_tags">Muted hashtags</string>
+    <string name="settings_muted_tags_empty">No muted hashtags.</string>
+    <string name="settings_mute_tag_label">Add hashtag</string>
+    <string name="settings_section_display">Display</string>
+
+    <!-- account -->
+    <string name="settings_accounts">Accounts</string>
+    <string name="settings_active">Active</string>
+    <string name="settings_switch_to">Switch to this account</string>
+    <string name="settings_add_account">Add account</string>
+    <string name="settings_public_key">Your public key</string>
+    <string name="settings_show_qr">Show QR code</string>
+    <string name="settings_hide_qr">Hide QR code</string>
+    <string name="settings_signer">Signer</string>
+    <string name="settings_signer_internal">Secret key on this device</string>
+    <string name="settings_signer_internal_sub">Encrypted with the Android Keystore</string>
+    <string name="settings_signer_amber">Signer app (NIP-55)</string>
+    <string name="settings_signer_nip46">Remote signer (NIP-46)</string>
+    <string name="settings_signer_remote">Remote signer %1$s</string>
+    <string name="settings_backup">Back up secret key</string>
+    <string name="settings_backup_sub">Show your nsec so you can save it somewhere safe</string>
+    <string name="settings_backup_confirm_title">Show your secret key?</string>
+    <string name="settings_backup_confirm_body">Anyone who sees this key can take over your account. Make sure nobody is watching your screen.</string>
+    <string name="settings_backup_show">Show key</string>
+    <string name="settings_backup_title">Your secret key</string>
+    <string name="settings_backup_warning">Never share it. Save it in a password manager.</string>
+    <string name="settings_backup_unavailable">The key couldn\'t be read from secure storage.</string>
+    <string name="settings_logout">Log out</string>
+    <string name="settings_logout_sub">Removes this account\'s keys and data from this device</string>
+    <string name="settings_logout_confirm_title">Log out of this account?</string>
+    <string name="settings_logout_confirm_body">Its keys, wallet connection and cached messages will be removed from this device.</string>
+    <string name="settings_logout_internal_warning">This account\'s secret key only lives on this device. Back it up first or you will lose the account.</string>
+    <string name="settings_switched">Switched account</string>
+    <string name="settings_done">Done</string>
+</resources>

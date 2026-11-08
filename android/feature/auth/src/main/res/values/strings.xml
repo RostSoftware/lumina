@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="auth_title">Log in</string>
+    <string name="auth_close">Close</string>
+    <string name="auth_back">Back</string>
+    <string name="auth_tagline">Share your photos on Nostr. Your keys, your followers, any app.</string>
+
+    <!-- method chooser -->
+    <string name="auth_recommended">Recommended</string>
+    <string name="auth_amber">Log in with Amber</string>
+    <string name="auth_amber_named">Log in with %1$s</string>
+    <string name="auth_amber_desc">Your key stays in your signer app. LUMINA asks it to sign.</string>
+    <string name="auth_get_amber">Get Amber</string>
+    <string name="auth_get_amber_desc">Install a signer app to keep your key out of LUMINA. Then come back here.</string>
+    <string name="auth_bunker">Remote signer (bunker)</string>
+    <string name="auth_bunker_desc">Paste or scan a bunker:// link from nsec.app, Amber or another NIP-46 signer.</string>
+    <string name="auth_nostrconnect">Connect a signer</string>
+    <string name="auth_nostrconnect_desc">Show a nostrconnect:// code for your signer to scan.</string>
+    <string name="auth_other_options">Other options</string>
+    <string name="auth_nsec">Use secret key (nsec)</string>
+    <string name="auth_nsec_desc">Stored encrypted on this device. A signer app is safer.</string>
+    <string name="auth_create">Create new account</string>
+    <string name="auth_create_desc">New to Nostr? Get started in seconds.</string>
+
+    <!-- amber -->
+    <string name="auth_amber_rejected">The signer didn\'t approve the login</string>
+    <string name="auth_amber_failed">Couldn\'t read the answer from your signer</string>
+    <string name="auth_no_app">No app found to open this</string>
+
+    <!-- bunker -->
+    <string name="auth_bunker_title">Remote signer</string>
+    <string name="auth_bunker_label">Bunker link</string>
+    <string name="auth_bunker_placeholder">bunker://…</string>
+    <string name="auth_bunker_invalid">That doesn\'t look like a bunker:// link with a relay</string>
+    <string name="auth_bunker_failed">Couldn\'t connect to the remote signer</string>
+    <string name="auth_paste">Paste</string>
+    <string name="auth_scan">Scan QR code</string>
+    <string name="auth_scan_prompt">Scan the bunker:// QR code from your signer</string>
+    <string name="auth_scan_wrong">That QR code isn\'t a bunker:// link</string>
+    <string name="auth_connect">Connect</string>
+    <string name="auth_cancel">Cancel</string>
+    <string name="auth_waiting_title">Waiting for approval</string>
+    <string name="auth_waiting_body">Open your signer and approve the connection to LUMINA.</string>
+
+    <!-- nostrconnect -->
+    <string name="auth_nc_title">Connect a signer</string>
+    <string name="auth_nc_body">Scan this code with your signer app (Amber, nsec.app, …), or open it on this phone.</string>
+    <string name="auth_nc_open">Open in signer app</string>
+    <string name="auth_nc_copy">Copy link</string>
+    <string name="auth_nc_waiting">Waiting for your signer to connect…</string>
+    <string name="auth_nc_failed">The connection didn\'t complete.</string>
+    <string name="auth_retry">Try again</string>
+    <string name="auth_copied">Copied</string>
+
+    <!-- nsec -->
+    <string name="auth_nsec_title">Secret key</string>
+    <string name="auth_nsec_label">nsec1… or hex key</string>
+    <string name="auth_nsec_warning">Your key will be stored encrypted on this device with the Android Keystore. For better security use a signer app like Amber.</string>
+    <string name="auth_nsec_invalid">That isn\'t a valid secret key</string>
+    <string name="auth_show_key">Show key</string>
+    <string name="auth_hide_key">Hide key</string>
+    <string name="auth_login">Log in</string>
+
+    <!-- create -->
+    <string name="auth_creating">Creating your account…</string>
+    <string name="auth_profile_title">Set up your profile</string>
+    <string name="auth_profile_body">This is how people will see you. You can change it any time.</string>
+    <string name="auth_profile_name">Display name</string>
+    <string name="auth_profile_about">About you (optional)</string>
+    <string name="auth_profile_save">Continue</string>
+    <string name="auth_skip">Skip</string>
+    <string name="auth_welcome">Welcome to LUMINA!</string>
+
+    <string name="auth_backup_title">Back up your key</string>
+    <string name="auth_backup_body">This secret key IS your account. There is no password reset: if you lose it, your account is gone forever. Anyone who has it can post as you.</string>
+    <string name="auth_backup_tip">Save it in a password manager. Never share it with anyone or paste it into websites.</string>
+    <string name="auth_backup_reveal">Tap to reveal your key</string>
+    <string name="auth_backup_hidden">Secret key hidden</string>
+    <string name="auth_backup_copy">Copy key</string>
+    <string name="auth_backup_done">I saved my key</string>
+    <string name="auth_backup_later">Back up later in Settings</string>
+    <string name="auth_backup_unavailable">The key couldn\'t be read. You can back it up later in Settings → Account.</string>
+</resources>

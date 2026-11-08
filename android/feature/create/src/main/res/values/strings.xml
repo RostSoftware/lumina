@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="create_title">New post</string>
+    <string name="create_close">Close</string>
+    <string name="create_next">Next</string>
+    <string name="create_share">Share</string>
+    <string name="create_back">Back</string>
+
+    <!-- Pick -->
+    <string name="create_pick_title">Share photos</string>
+    <string name="create_pick_message">Pick up to %1$d photos from your gallery or take a new one.</string>
+    <string name="create_pick_gallery">Choose from gallery</string>
+    <string name="create_pick_camera">Take a photo</string>
+    <string name="create_add_more">Add photos</string>
+    <string name="create_no_camera">No camera app available</string>
+    <string name="create_too_many">You can add up to %1$d photos</string>
+    <string name="create_unreadable">This image can\'t be read</string>
+
+    <!-- Logged out -->
+    <string name="create_login_title">Log in to share photos</string>
+    <string name="create_login_message">Use a signer app, a bunker or your key to post to Nostr.</string>
+    <string name="create_login_action">Log in</string>
+
+    <!-- Edit -->
+    <string name="create_photo_n">Photo %1$d of %2$d</string>
+    <string name="create_photo_desc">Selected photo %1$d</string>
+    <string name="create_crop">Crop</string>
+    <string name="create_remove">Remove photo</string>
+    <string name="create_move_earlier">Move earlier</string>
+    <string name="create_move_later">Move later</string>
+    <string name="create_alt_label">Alt text</string>
+    <string name="create_alt_placeholder">Describe this photo for people who can\'t see it</string>
+    <string name="create_thumb_desc">Photo %1$d</string>
+
+    <!-- Crop -->
+    <string name="create_crop_title">Crop</string>
+    <string name="create_crop_done">Done</string>
+    <string name="create_crop_cancel">Cancel</string>
+    <string name="create_crop_reset">Reset</string>
+    <string name="create_crop_hint">Pinch to zoom, drag to move</string>
+    <string name="create_aspect_original">Original</string>
+    <string name="create_aspect_square">1:1</string>
+    <string name="create_aspect_portrait">4:5</string>
+    <string name="create_aspect_landscape">16:9</string>
+
+    <!-- Details -->
+    <string name="create_caption_placeholder">Write a caption… use #hashtags</string>
+    <string name="create_caption_label">Caption</string>
+    <string name="create_uploads">Uploads</string>
+    <string name="create_upload_waiting">Waiting to upload</string>
+    <string name="create_upload_preparing">Removing location data…</string>
+    <string name="create_upload_progress">Uploading %1$d%%</string>
+    <string name="create_upload_done">Uploaded</string>
+    <string name="create_upload_retry">Retry upload</string>
+    <string name="create_upload_failed_servers">Upload failed on all media servers</string>
+    <string name="create_uploads_pending">You can share once every photo is uploaded</string>
+    <string name="create_hashtags">Hashtags</string>
+    <string name="create_hashtag_placeholder">Add a hashtag</string>
+    <string name="create_hashtag_add">Add hashtag</string>
+    <string name="create_hashtag_invalid">Use letters, numbers and _ only</string>
+    <string name="create_hashtag_remove">Remove #%1$s</string>
+    <string name="create_people">Tag people</string>
+    <string name="create_people_placeholder">Search by name, npub or NIP-05</string>
+    <string name="create_people_none">No people found</string>
+    <string name="create_person_remove">Remove %1$s</string>
+    <string name="create_location">Location</string>
+    <string name="create_location_placeholder">Add a place name</string>
+    <string name="create_cw">Content warning</string>
+    <string name="create_cw_subtitle">Blur photos until viewers tap to reveal</string>
+    <string name="create_cw_reason">Reason (optional)</string>
+
+    <!-- Publish -->
+    <string name="create_waiting_signer">Waiting for your signer…</string>
+    <string name="create_sending">Sharing your post…</string>
+    <string name="create_sending_hint">You can close this screen. Your post will be sent in the background.</string>
+    <string name="create_publish_failed">Couldn\'t share your post</string>
+    <string name="create_publish_retry">Retry</string>
+
+    <!-- Discard -->
+    <string name="create_discard_title">Discard post?</string>
+    <string name="create_discard_message">If you leave now, your photos and edits will be lost.</string>
+    <string name="create_discard">Discard</string>
+    <string name="create_keep_editing">Keep editing</string>
+</resources>

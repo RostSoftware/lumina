@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ds_retry">Retry</string>
+    <string name="ds_back">Back</string>
+    <string name="ds_close">Close</string>
+    <string name="ds_avatar">Profile picture</string>
+    <string name="ds_loading">Loading</string>
+    <string name="ds_wordmark">LUMINA</string>
+    <string name="ds_something_went_wrong">Something went wrong</string>
+</resources>

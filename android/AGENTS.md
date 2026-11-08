@@ -3,7 +3,8 @@
 This folder contains the native Android app for LUMINA. **Read the root `/AGENTS.md` first.** It defines the product,
 the feature set, login methods, design principles and Definition of Done that this app must meet. This file only covers
 how to build it on Android. Implementation order and progress are tracked in [`PLAN.md`](./PLAN.md). Keep it updated
-as you work.
+as you work. Architecture, protocol mapping, security and dev docs live in [`docs/`](./docs/README.md); keep them
+updated when behaviour changes.
 
 ## Tech Stack
 
@@ -40,6 +41,7 @@ android/
 │   ├── data/               ← repositories, Quartz SQLiteEventStore, DataStore
 │   ├── media/              ← Blossom upload, EXIF stripping, blurhash, sha256
 │   ├── wallet/             ← NWC (NIP-47) + zaps (NIP-57)
+│   ├── ui/                 ← Nostr-aware shared UI (PostCard, sheets, RichText, PostActionsViewModel)
 │   └── designsystem/       ← theme, color/typography tokens, shared components (Avatar, PostImage, Skeleton…)
 └── feature/
     ├── auth/ feed/ discover/ post/ create/ profile/ messages/ notifications/ settings/

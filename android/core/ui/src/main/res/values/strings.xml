@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- errors -->
+    <string name="err_rejected">Request rejected in your signer</string>
+    <string name="err_timed_out">Your signer didn\'t respond in time</string>
+    <string name="err_unreachable">Couldn\'t reach your signer</string>
+    <string name="err_signer_missing">Your signer app is not installed</string>
+    <string name="err_login_required">Log in to do that</string>
+    <string name="err_publish_failed">No relay accepted it. Check your connection and relays.</string>
+    <string name="err_generic">Something went wrong</string>
+    <string name="signer_waiting">Waiting for your signer…</string>
+
+    <!-- post -->
+    <string name="post_like">Like</string>
+    <string name="post_unlike">Unlike</string>
+    <string name="post_comment">Comment</string>
+    <string name="post_repost">Repost</string>
+    <string name="post_undo_repost">Undo repost</string>
+    <string name="post_zap">Zap</string>
+    <string name="post_share">Share</string>
+    <string name="post_bookmark">Save</string>
+    <string name="post_unbookmark">Remove from saved</string>
+    <string name="post_more">More options</string>
+    <string name="post_likes">%1$s likes</string>
+    <string name="post_one_like">1 like</string>
+    <string name="post_view_comments">View all %1$d comments</string>
+    <string name="post_view_one_comment">View 1 comment</string>
+    <string name="post_zapped">%1$s sats zapped</string>
+    <string name="post_image_of">Photo %1$d of %2$d</string>
+    <string name="post_image_fallback_alt">Photo by %1$s</string>
+    <string name="post_image_unavailable">Image unavailable</string>
+    <string name="post_sensitive_title">Sensitive content</string>
+    <string name="post_sensitive_reason">This photo may contain: %1$s</string>
+    <string name="post_sensitive_generic">This photo may contain sensitive content.</string>
+    <string name="post_reveal">Show photo</string>
+    <string name="post_multiple">Multiple photos</string>
+    <string name="post_new_posts">New posts</string>
+    <string name="post_reposted_by">%1$s reposted</string>
+    <string name="post_more_caption">more</string>
+    <string name="post_deleted">Post deleted</string>
+    <string name="post_reported">Thanks — report sent</string>
+    <string name="post_muted">%1$s muted</string>
+    <string name="post_link_copied">Link copied</string>
+    <string name="post_saved">Saved</string>
+    <string name="post_unsaved">Removed from saved</string>
+    <string name="post_location">Location</string>
+
+    <!-- menu -->
+    <string name="menu_copy_link">Copy link</string>
+    <string name="menu_view_raw">View raw event</string>
+    <string name="menu_mute">Mute %1$s</string>
+    <string name="menu_unmute">Unmute %1$s</string>
+    <string name="menu_report">Report</string>
+    <string name="menu_delete">Delete post</string>
+    <string name="menu_delete_confirm">Delete this post? Relays that honour NIP-09 will remove it.</string>
+    <string name="menu_cancel">Cancel</string>
+    <string name="menu_go_to_profile">Go to profile</string>
+    <string name="raw_event">Raw event</string>
+    <string name="copy">Copy</string>
+    <string name="copied">Copied</string>
+
+    <!-- report -->
+    <string name="report_title">Report</string>
+    <string name="report_why">Why are you reporting this?</string>
+    <string name="report_spam">Spam</string>
+    <string name="report_nudity">Nudity or sexual content</string>
+    <string name="report_profanity">Hate speech or profanity</string>
+    <string name="report_illegal">Illegal content</string>
+    <string name="report_impersonation">Impersonation</string>
+    <string name="report_malware">Malware or scam</string>
+    <string name="report_other">Something else</string>
+    <string name="report_details">Details (optional)</string>
+    <string name="report_send">Send report</string>
+
+    <!-- zap -->
+    <string name="zap_title">Zap %1$s</string>
+    <string name="zap_custom">Custom amount (sats)</string>
+    <string name="zap_comment">Add a comment (optional)</string>
+    <string name="zap_send">Zap %1$s sats</string>
+    <string name="zap_sent">Zapped %1$s sats ⚡</string>
+    <string name="zap_no_wallet">No wallet connected — opening your Lightning wallet</string>
+    <string name="zap_no_address">This user can\'t receive zaps (no lightning address)</string>
+    <string name="zap_open_wallet_failed">No Lightning wallet app found. Connect a wallet in Settings → Wallet.</string>
+    <string name="zap_top_zappers">Top zappers</string>
+    <string name="sats">%1$s sats</string>
+
+    <!-- engagement -->
+    <string name="eng_likes">Likes</string>
+    <string name="eng_reposts">Reposts</string>
+    <string name="eng_zaps">Zaps</string>
+    <string name="eng_empty">Nothing here yet</string>
+
+    <!-- share -->
+    <string name="share_title">Share</string>
+    <string name="share_via">Share via…</string>
+    <string name="share_copy_nevent">Copy nevent</string>
+
+    <!-- user -->
+    <string name="user_nip05_verified">Verified NIP-05 %1$s</string>
+    <string name="user_follow">Follow</string>
+    <string name="user_following">Following</string>
+    <string name="user_avatar_of">%1$s\'s profile picture</string>
+
+    <!-- time -->
+    <string name="time_now">now</string>
+    <string name="time_minutes">%1$dm</string>
+    <string name="time_hours">%1$dh</string>
+    <string name="time_days">%1$dd</string>
+    <string name="time_weeks">%1$dw</string>
+    <string name="qr_code">QR code for %1$s</string>
+</resources>

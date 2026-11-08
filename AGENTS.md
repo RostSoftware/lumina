@@ -22,13 +22,14 @@ in.** If they conflict, the app-level file wins for implementation details; this
 │   └── .agents/skills/← loadable skills for web workflows
 └── android/           ← Android app: Kotlin + Jetpack Compose + Quartz (Nostr SDK)
     ├── AGENTS.md      ← Android stack rules
-    └── PLAN.md        ← Android implementation plan & progress
+    ├── PLAN.md        ← Android implementation plan & progress
+    └── docs/          ← Android architecture, protocol, security, dev docs
 ```
 
 | App | Folder | Nostr SDK | Status |
 | --- | --- | --- | --- |
 | Web | `lumina-web/` | [Nostrify](https://nostrify.dev) | implemented — see `lumina-web/docs/` |
-| Android | `android/` | [Quartz](https://github.com/vitorpamplona/quartz) | planned — see `android/PLAN.md` |
+| Android | `android/` | [Quartz](https://github.com/vitorpamplona/quartz) | implemented — see `android/docs/` and `android/PLAN.md` |
 
 New platforms get their own top-level folder with their own `AGENTS.md` (and `PLAN.md` while being built), and a row in
 the table above.

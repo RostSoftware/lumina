@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="notifications_title">Notifications</string>
+    <string name="notifications_app_name">LUMINA</string>
+    <string name="notifications_login_title">Your activity</string>
+    <string name="notifications_login_message">Log in to see who liked, commented on and zapped your posts.</string>
+    <string name="notifications_login_action">Log in</string>
+    <string name="notifications_empty_title">No notifications yet</string>
+    <string name="notifications_empty_message">When people like, comment on, repost or zap your posts, you\'ll see it here.</string>
+    <string name="notifications_error">We couldn\'t load your notifications.</string>
+    <string name="notifications_load_more_retry">Load more</string>
+    <string name="notifications_section_new">New</string>
+    <string name="notifications_section_earlier">Earlier</string>
+    <string name="notifications_post_thumbnail">Your post</string>
+    <string name="notifications_open_post">Open post</string>
+    <string name="notifications_open_profile">Open %1$s\'s profile</string>
+
+    <string name="notifications_actors_two">%1$s and %2$s</string>
+    <plurals name="notifications_actors_others">
+        <item quantity="one">%1$s and %2$d other</item>
+        <item quantity="other">%1$s and %2$d others</item>
+    </plurals>
+    <string name="notifications_liked">%1$s liked your post.</string>
+    <string name="notifications_commented">%1$s commented: %2$s</string>
+    <string name="notifications_reposted">%1$s reposted your post.</string>
+    <plurals name="notifications_zapped">
+        <item quantity="one">%1$s zapped %2$s sat.</item>
+        <item quantity="other">%1$s zapped %2$s sats.</item>
+    </plurals>
+    <string name="notifications_mentioned">%1$s mentioned you in a post.</string>
+    <string name="notifications_followed">%1$s started following you.</string>
+
+    <string name="notifications_permission_message">Turn on notifications to hear about likes, comments, zaps and messages.</string>
+    <string name="notifications_permission_action">Turn on</string>
+    <string name="notifications_permission_dismiss">Dismiss</string>
+
+    <string name="notifications_channel_group">Activity</string>
+    <string name="notifications_channel_likes">Likes</string>
+    <string name="notifications_channel_comments">Comments</string>
+    <string name="notifications_channel_reposts">Reposts</string>
+    <string name="notifications_channel_zaps">Zaps</string>
+    <string name="notifications_channel_mentions">Mentions</string>
+    <string name="notifications_channel_follows">New followers</string>
+    <string name="notifications_channel_messages">Messages</string>
+    <string name="notifications_new_message_title">New message</string>
+    <plurals name="notifications_new_messages">
+        <item quantity="one">You have a new private message</item>
+        <item quantity="other">You have %1$d new private messages</item>
+    </plurals>
+    <string name="notifications_summary">New activity on LUMINA</string>
+</resources>
