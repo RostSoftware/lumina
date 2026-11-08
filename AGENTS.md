@@ -27,7 +27,7 @@ in.** If they conflict, the app-level file wins for implementation details; this
 
 | App | Folder | Nostr SDK | Status |
 | --- | --- | --- | --- |
-| Web | `lumina-web/` | [Nostrify](https://nostrify.dev) | in progress |
+| Web | `lumina-web/` | [Nostrify](https://nostrify.dev) | implemented — see `lumina-web/docs/` |
 | Android | `android/` | [Quartz](https://github.com/vitorpamplona/quartz) | planned — see `android/PLAN.md` |
 
 New platforms get their own top-level folder with their own `AGENTS.md` (and `PLAN.md` while being built), and a row in

@@ -14,6 +14,10 @@ export default defineConfig(() => ({
     react(),
     tailwindcss(),
   ],
+  build: {
+    // Never inline fonts as data: URIs — the CSP only allows `font-src 'self'`.
+    assetsInlineLimit: (file: string) => (/\.(woff2?|ttf|otf)$/.test(file) ? false : undefined),
+  },
   test: {
     globals: true,
     environment: 'jsdom',
